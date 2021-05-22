@@ -1,9 +1,9 @@
 import sys
 from maze import *
-from data_structure import *
-from dfs import *
-
-
+import dfs
+import bfs
+import greedy
+import ucs
 
 
 
