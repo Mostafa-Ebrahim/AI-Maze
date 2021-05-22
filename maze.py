@@ -1,3 +1,9 @@
+import bfs
+import dfs
+import astar
+import greedy
+import ucs
+
 class Maze():
     def __init__(self, filename):
         # Read file and set height and width of maze
@@ -49,3 +55,19 @@ class Maze():
                     print(" ", end="")
             print()
         print()
+
+
+    def bfs(self):
+        self.bfs = bfs.bfs(self)
+
+    def dfs(self):
+        self.dfs = dfs.dfs(self)
+
+    def astar(self):
+        self.astar = astar.astar(self)
+
+    def greedy(self):
+        self.greedy = greedy.greedy(self)
+
+    def ucs(self):
+        self.ucs = ucs.ucs(self)
