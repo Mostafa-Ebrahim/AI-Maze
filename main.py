@@ -1,7 +1,8 @@
 import sys
 from maze import *
-import dfs
 import bfs
+import dfs
+import astar
 import greedy
 import ucs
 
