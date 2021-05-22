@@ -7,31 +7,31 @@ class Node():
 
 class Stack():
     def __init__(self):
-        self.stack = []
+        self.fringe = []
 
     def add(self, node):
-        self.stack.append(node)
+        self.fringe.append(node)
 
     def contains_state(self, state):
-        return any(node.state == state for node in self.stack)
+        return any(node.state == state for node in self.fringe)
 
     def empty(self):
-        return len(self.stack) == 0
+        return len(self.fringe) == 0
 
     def remove(self):
         if self.empty():
             raise Exception("empty stack")
         else:
-            node = self.stack[-1]
-            self.stack = self.stack[:-1]
+            node = self.fringe[-1]
+            self.fringe = self.fringe[:-1]
             return node
 
 
 class Queue(Stack):
     def remove(self):
         if self.empty():
-            raise Exception("empty Queue")
+            raise Exception("empty queue")
         else:
-            node = self.frontier[0]
-            self.frontier = self.frontier[1:]
+            node = self.fringe[0]
+            self.fringe = self.fringe[1:]
             return node
