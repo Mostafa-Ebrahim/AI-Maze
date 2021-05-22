@@ -1,5 +1,3 @@
-import sys
-
 class Maze():
     def __init__(self, filename):
         # Read file and set height and width of maze
@@ -51,12 +49,3 @@ class Maze():
                     print(" ", end="")
             print()
         print()
-
-############################################################################################
-
-if len(sys.argv) != 2:
-    sys.exit("Usage: python maze.py maze.txt")
-
-m = Maze(sys.argv[1])
-print("Maze: ")
-m.print()
