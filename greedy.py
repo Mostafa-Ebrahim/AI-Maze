@@ -1,4 +1,4 @@
 from data_structure import *
 
-def greedy():
+def greedy(self):
     return
