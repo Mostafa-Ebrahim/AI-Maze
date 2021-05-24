@@ -3,10 +3,10 @@ import dfs
 import astar
 import greedy
 import ucs
+from data_structure import *
 
 class Maze():
     def __init__(self, filename):
-        # Read file and set height and width of maze
         with open(filename) as file:
             contents = file.read()
 
@@ -40,7 +40,6 @@ class Maze():
 
     def print(self):
         solution = self.solution[1] if self.solution is not None else None
-        print()
         for i, row in enumerate(self.walls):
             for j, col in enumerate(row):
                 if col:
@@ -56,6 +55,19 @@ class Maze():
             print()
         print()
 
+    def neighbors(self, state):
+        row, col = state
+        candidates = [
+            ("up", (row - 1, col)),
+            ("down", (row + 1, col)),
+            ("left", (row, col - 1)),
+            ("right", (row, col + 1))
+        ]
+        result = []
+        for action, (r, c) in candidates:
+            if 0 <= r < self.height and 0 <= c < self.width and not self.walls[r][c]:
+                result.append((action, (r, c)))
+        return result
 
     def bfs(self):
         self.bfs = bfs.bfs(self)
