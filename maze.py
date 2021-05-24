@@ -55,6 +55,7 @@ class Maze():
             print()
         print()
 
+
     def neighbors(self, state):
         row, col = state
         candidates = [
@@ -69,14 +70,21 @@ class Maze():
                 result.append((action, (r, c)))
         return result
 
+
+    def heuristic(self):
+        (r1, c1) = self.start
+        (r2, c2) = self.goal
+        return abs(r1 - r2) + abs(c1 - c2)
+
+
     def bfs(self):
         self.bfs = bfs.bfs(self)
 
     def dfs(self):
         self.dfs = dfs.dfs(self)
 
-    def astar(self):
-        self.astar = astar.astar(self)
+    def astar(self, h):
+        self.astar = astar.astar(self, h)
 
     def greedy(self):
         self.greedy = greedy.greedy(self)
