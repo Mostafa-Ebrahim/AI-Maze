@@ -1,6 +1,8 @@
 from data_structure import *
+from publicFunctions import *
 
 def greedy(self):
-    start = Node(state=self.start, parent=None, action=None)
+    startNode = Node(state=self.start, parent=None, action=None, direction='Up', heuristic=0,cost=0)
+    x = neighbors(self, startNode.state)
+    print(x)
 
-    print(start)

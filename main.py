@@ -17,5 +17,6 @@ def run():
     m = Maze(sys.argv[1])
     print("Maze: ")
     m.print()
+    m.greedy()
 
 run()
