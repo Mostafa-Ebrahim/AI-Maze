@@ -1,9 +1,10 @@
 class Node():
-    def __init__(self, state, parent, action):
+    def __init__(self, state, parent, action, heuristic, cost):
         self.state = state
         self.parent = parent
         self.action = action
-
+        self.heuristic = heuristic
+        self.cost = cost
 
 class Stack():
     def __init__(self):
