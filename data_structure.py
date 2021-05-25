@@ -1,11 +1,14 @@
 class Node():
-    def __init__(self, state, parent, action, heuristic, cost):
+    def __init__(self, state, parent, action, direction, heuristic, cost):
         self.state = state
         self.parent = parent
         self.action = action
+        self.direction = direction
         self.heuristic = heuristic
         self.cost = cost
 
+    def setDirection(self, action):
+        self.direction = action
 class Stack():
     def __init__(self):
         self.fringe = []
