@@ -43,17 +43,17 @@ class Maze():
         for i, row in enumerate(self.walls):
             for j, col in enumerate(row):
                 if col:
-                    # print("░", end="")
-                    print(" ▣ ", end="")
+                    print("░", end="")
+                    # print(" ▣ ", end="")
                 elif (i, j) == self.start:
-                    print(" S ", end="")
+                    print("S", end="")
                 elif (i, j) == self.goal:
-                    print(" G ", end="")
+                    print("G", end="")
                 elif solution is not None and (i, j) in solution:
                     print("•", end="")
                 else:
-                    # print(" ", end="")
-                    print(" □ ", end="")
+                    print(" ", end="")
+                    # print(" □ ", end="")
             print()
         print()
 
