@@ -3,6 +3,6 @@ from publicFunctions import *
 
 def greedy(self):
     startNode = Node(state=self.start, parent=None, action=None, direction='Up', heuristic=0,cost=0)
-    x = neighbors(self, startNode.state)
+    x = availableActions(self, startNode.state)
     print(x)
 
