@@ -1,29 +1,31 @@
 from data_structure import *
 from publicFunctions import *
 
-OverallCost = 0
+OverAllCost = 0
 
 
 def greedy(self):
     # print(self.goal)
     startNode = Node(
-        state=self.start, parent=None, action=None, direction="Up", heuristic=0, cost=0
+        state=self.start, parent=None, action=None, direction="up", heuristic=0, cost=0
     )
     availableNodes = []
     visitedNodes = []
 
-    print(getMinH(availableNodes, startNode.heuristic))
+    # print(getMinH(availableNodes, startNode.heuristic))
     # possibleActions = availableActions(self, startNode.state)
     # print(possibleActions[0][1])
 
     availableNodes.append(startNode)
     while len(availableNodes) > 0:
-        currentNode = availableNodes.pop(getMinH(availableNodes, startNode.heuristic))
+        # print('While Start', availableNodes)
+        currentNode = availableNodes.pop(getMinH(availableNodes, heu))
         if currentNode.state in visitedNodes:
             continue
         visitedNodes.append(currentNode.state)
 
-        if IsGoal(self, currentNode.state):
+        # print ('after poping', availableNodes)
+        if currentNode.state == self.goal:
             print("somecode")  # Some Code
             # Solution = {}
             # Solution['solution'] = currentNode['path']
@@ -31,43 +33,18 @@ def greedy(self):
             # return Solution
 
         possibleActions = availableActions(self, startNode.state)
+        # print(possibleActions)
         for action in possibleActions:
             nextNode = applyAction(self, currentNode, action)
-            #     nextNode = {}
-            #     nextNode['state'] = nextState
-            #     nextNode['path'] = currentNode['path'][:]
-            #     nextNode['path'].append(action)
-            #     nextNode['H'] = Heuristic(nextState)
             availableNodes.append(nextNode)
+            # print('at end of for',availableNodes)
+        # print('after for', availableNodes)
+    return FinalCost()
 
-    print(OverallCost)
 
-
-def getMinH(fringe, key):
+def getMinH(fringe, heuristic):
     Min = 0
     for i in range(1, len(fringe)):
-        if fringe[i][key] < fringe[Min][key]:
+        if fringe[i].heuristic < fringe[Min].heuristic:
             Min = i
     return Min
-
-
-def IsGoal(self, currentState):
-    if currentState == self.goal:
-        return True
-    return False
-
-
-def applyAction(self, currentNode, action):
-    if currentNode.direction == action[0]:
-        OverallCost = +1
-    else:
-        OverallCost = +2
-    newHeu = heu(self, currentNode)
-    nextNode = Node(
-        state=action[1],
-        parent=currentNode,
-        direction=action[0],
-        heuristic=newHeu,
-        cost=0,
-    )
-    return nextNode
