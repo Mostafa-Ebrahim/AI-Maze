@@ -6,7 +6,9 @@ def heu(self, node):
     return abs(r2 - r1) + abs (c2 - c1)
 
 def cost(self, node):
-    return
+    (r1, c1) = node
+    (r2, c2) = self.start
+    return abs(r2 - r1) + abs (c2 - c1)
 
 def getMinH(fringe):
     Min = 0
@@ -16,10 +18,14 @@ def getMinH(fringe):
     return Min
 
 def getMinC(fringe):
-    return
+    Min = 0
+    for i in range(1, len(fringe)):
+        if fringe[i].cost < fringe[Min].cost:
+            Min = i
+    return Min
 
-def getMinF(MinH, MinC):
-    return MinH+MinC
+def getMinF(fringe):
+    return 
 
 def FinalCost(actions):
     cost = 0
