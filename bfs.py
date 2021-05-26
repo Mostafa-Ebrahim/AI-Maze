@@ -22,6 +22,7 @@ def bfs(self):
                 actions.reverse()
                 cells.reverse()
                 self.solution = (actions, cells)
+                print ("The Final Cost: ", FinalCost(actions))
                 print("Actions: "+', '.join(actions))
                 return
 
