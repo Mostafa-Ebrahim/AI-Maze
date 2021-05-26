@@ -1,16 +1,16 @@
 from data_structure import *
 from publicFunctions import *
 
-def bfs(self):
-    startNode = Node(state=self.start, parent=None, action=None,  heuristic=h, cost=0)
-    availableNodes = []
+def dfs(self):
+    startNode = Node(state=self.start, parent=None, action=None, heuristic=0, cost=0)
+    availableNodes = Queue()
     self.visitedNodes = set()
-    availableNodes.append(startNode)
+    availableNodes.add(startNode)
     while True:
-        if len(availableNodes) == 0:
+        if availableNodes.empty():
             print("No solution")
             break
-        currentNode = availableNodes.pop(0)
+        currentNode = availableNodes.remove()
         # reached the goal ?
         if currentNode.state == self.goal:
                 actions = []
@@ -30,5 +30,5 @@ def bfs(self):
         # Add available nodes
         for action, state in self.availableActions(currentNode.state):
                 if state not in self.visitedNodes:
-                    child = Node(state=state, parent=currentNode, action=action)
-                    availableNodes.append(child)
+                    child = Node(state=state, parent=currentNode, action=action, heuristic=0, cost=0)
+                    availableNodes.add(child)  
