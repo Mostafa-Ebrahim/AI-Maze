@@ -3,7 +3,7 @@ from publicFunctions import *
 
 def greedy(self):
     h=heu(self, self.start)
-    startNode = Node(state=self.start, parent=None, action=None, direction="up", heuristic=h, cost=0)
+    startNode = Node(state=self.start, parent=None, action=None, heuristic=h, cost=0)
 
     availableNodes = []
     self.visitedNodes = set()
@@ -27,7 +27,7 @@ def greedy(self):
                 actions.reverse()
                 cells.reverse()
                 self.solution = (actions, cells)
-                print ("The Final Cost: ", FinalCost())
+                print ("The Final Cost: ", FinalCost(actions))
                 print("Actions: "+', '.join(actions))
                 return
 
@@ -36,7 +36,7 @@ def greedy(self):
         # Add available nodes
         for action, state in self.availableActions(currentNode.state):
                 if state not in self.visitedNodes:
-                    child = Node(state=state, parent=currentNode, action=action, direction=currentNode.direction, heuristic=heu(self, currentNode.state), cost=getcost(currentNode))
+                    child = Node(state=state, parent=currentNode, action=action, heuristic=heu(self, currentNode.state), cost=0)
                     availableNodes.append(child)
 
 """
