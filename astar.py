@@ -3,8 +3,7 @@ from publicFunctions import *
 
 def astar(self):
     h=heu(self, self.start)
-    c=cost(self, self.start)
-    startNode = Node(state=self.start, parent=None, action=None, heuristic=h, cost=c)
+    startNode = Node(state=self.start, parent=None, action=None, heuristic=h, cost=0)
 
     availableNodes = []
     self.visitedNodes = set()
@@ -16,7 +15,8 @@ def astar(self):
             print("No solution")
             break
 
-        currentNode = availableNodes.pop(getMinF(availableNodes))
+        currentNode = availableNodes.pop(0)
+        # print(currentNode.state)
         # reached the goal ?
         if currentNode.state == self.goal:
                 actions = []
