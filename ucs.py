@@ -2,8 +2,8 @@ from data_structure import *
 from publicFunctions import *
 
 def ucs(self):
-    h=heu(self, self.start)
-    startNode = Node(state=self.start, parent=None, action=None, heuristic=h, cost=0)
+    c=cost(self, self.start)
+    startNode = Node(state=self.start, parent=None, action=None, heuristic=None, cost=c)
 
     availableNodes = []
     self.visitedNodes = set()
@@ -36,7 +36,5 @@ def ucs(self):
         # Add available nodes
         for action, state in self.availableActions(currentNode.state):
                 if state not in self.visitedNodes:
-                    child = Node(state=state, parent=currentNode, action=action, heuristic=heu(self, currentNode.state), cost=0)
+                    child = Node(state=state, parent=currentNode, action=action, heuristic=0, cost=cost(self, currentNode.state))
                     availableNodes.append(child)
-
-
