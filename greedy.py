@@ -12,6 +12,7 @@ def greedy(self):
 
     while True:
         if len(availableNodes) == 0:
+            print("No solution")
             break
 
         currentNode = availableNodes.pop(getMinH(availableNodes))
@@ -26,6 +27,7 @@ def greedy(self):
                 actions.reverse()
                 cells.reverse()
                 self.solution = (actions, cells)
+                print ("The Final Cost: ", FinalCost())
                 return
 
         self.visitedNodes.add(currentNode.state)

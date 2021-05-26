@@ -15,4 +15,4 @@ def getcost(self):
         OverAllCost += 2
 
 def FinalCost():
-    return(OverAllCost//2 + 1)
+    return(OverAllCost//2 + 2)
