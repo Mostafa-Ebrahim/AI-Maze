@@ -5,12 +5,21 @@ def heu(self, node):
     (r2, c2) = self.goal
     return abs(r2 - r1) + abs (c2 - c1)
 
+def cost(self, node):
+    return
+
 def getMinH(fringe):
     Min = 0
     for i in range(1, len(fringe)):
         if fringe[i].heuristic < fringe[Min].heuristic:
             Min = i
     return Min
+
+def getMinC(fringe):
+    return
+
+def getMinF(MinH, MinC):
+    return MinH+MinC
 
 def FinalCost(actions):
     cost = 0
