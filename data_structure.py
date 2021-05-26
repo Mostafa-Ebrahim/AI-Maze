@@ -13,9 +13,6 @@ class Stack():
     def add(self, node):
         self.fringe.append(node)
 
-    def contains_state(self, state):
-        return any(node.state == state for node in self.fringe)
-
     def empty(self):
         return len(self.fringe) == 0
 
