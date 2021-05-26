@@ -1,7 +1,7 @@
 from data_structure import *
 from publicFunctions import *
 
-def dfs(self):
+def bfs(self):
     startNode = Node(state=self.start, parent=None, action=None, heuristic=0, cost=0)
     availableNodes = Queue()
     self.visitedNodes = set()
