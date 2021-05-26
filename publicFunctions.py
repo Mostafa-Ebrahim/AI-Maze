@@ -25,7 +25,11 @@ def getMinC(fringe):
     return Min
 
 def getMinF(fringe):
-    return 
+    Min = 0
+    for i in range(1, len(fringe)):
+        if fringe[i].cost + fringe[i].heuristic < fringe[Min].cost + fringe[Min].heuristic:
+            Min = i
+    return Min
 
 def FinalCost(actions):
     cost = 0
