@@ -2,7 +2,7 @@ from data_structure import *
 from publicFunctions import *
 
 def bfs(self):
-    startNode = Node(state=self.start, parent=None, action=None)
+    startNode = Node(state=self.start, parent=None, action=None,  heuristic=h, cost=0)
     availableNodes = []
     self.visitedNodes = set()
     availableNodes.append(startNode)
