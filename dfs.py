@@ -2,7 +2,7 @@ ffrom data_structure import *
 from publicFunctions import *
 
 def dfs(self):
-    startNode = Node(state=self.start, parent=None)
+    startNode = Node(state=self.start, parent=None,  heuristic=h, cost=0)
     availableNodes = []
     self.visitedNodes = set()
     availableNodes.append(startNode)
