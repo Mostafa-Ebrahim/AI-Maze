@@ -15,8 +15,8 @@ def getMinH(fringe):
 def FinalCost(actions):
     cost = 0
     for i in range(1, len(actions)):
-        if actions[i] == actions[i-1]:
+        if actions[i] == actions[i-1] and actions[0] == "up":
             cost+=1
         else:
             cost+=2
-    return cost+1
+    return cost
