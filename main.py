@@ -18,8 +18,8 @@ def run():
     print("Maze: ")
     m.print()
     m.greedy()
+    print()
     m.print()
-    print ("The Final Cost: ", FinalCost())
     print()
 
 run()
