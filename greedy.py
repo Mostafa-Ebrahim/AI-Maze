@@ -2,31 +2,20 @@ from data_structure import *
 from publicFunctions import *
 
 def greedy(self):
-    # print(self.goal)
-    startNode = Node(
-        state=self.start, parent=None, action=None, direction="up", heuristic=0, cost=0
-    )
-    availableNodes = []
-    self.visitedNodes = []
+    h=heu(self, self.start)
+    startNode = Node(state=self.start, parent=None, action=None, direction="up", heuristic=h, cost=0)
 
-    # print(getMinH(availableNodes, startNode.heuristic))
-    # possibleActions = availableActions(self, startNode.state)
-    # print(possibleActions[0][1])
+    availableNodes = []
+    self.visitedNodes = set()
 
     availableNodes.append(startNode)
 
-    while len(availableNodes) > 0:
-        print(len(availableNodes))
+    while True:
+        if len(availableNodes) == 0:
+            break
 
-        # print('While Start', availableNodes)
         currentNode = availableNodes.pop(getMinH(availableNodes))
-        
-        '''
-        if currentNode.state in self.visitedNodes:
-            continue
-        '''
-
-        # reach the goal
+        # reached the goal ?
         if currentNode.state == self.goal:
                 actions = []
                 cells = []
@@ -39,12 +28,14 @@ def greedy(self):
                 self.solution = (actions, cells)
                 return
 
-        self.visitedNodes.append(currentNode.state)
+        self.visitedNodes.add(currentNode.state)
 
+        # Add available nodes
         for action, state in self.availableActions(currentNode.state):
                 if state not in self.visitedNodes:
-                    child = Node(state=state, parent=currentNode, action=action, direction='up', heuristic=0, cost=None)
+                    child = Node(state=state, parent=currentNode, action=action, direction=currentNode.direction, heuristic=heu(self, currentNode.state), cost=getcost(currentNode))
                     availableNodes.append(child)
+
 """
         possibleActions = availableActions(self, startNode.state)
         # print(possibleActions)
@@ -53,7 +44,6 @@ def greedy(self):
             availableNodes.append(nextNode)
             # print('at end of for',availableNodes)
         # print('after for', availableNodes)
-    return FinalCost()
 """
 
 def getMinH(fringe):
