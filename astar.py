@@ -15,8 +15,8 @@ def astar(self):
             print("No solution")
             break
 
-        currentNode = availableNodes.pop(0)
-        # print(currentNode.state)
+        currentNode = availableNodes.pop(getMinF(availableNodes))
+
         # reached the goal ?
         if currentNode.state == self.goal:
                 actions = []
