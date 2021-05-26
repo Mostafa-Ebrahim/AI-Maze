@@ -5,15 +5,15 @@ from publicFunctions import *
 
 
 
-def run():
+def main():
     # if len(sys.argv) != 2:
     #     sys.exit("Usage: python main.py maze1.txt")
     maze = 'maze5.txt'
     m = Maze(maze)
     print("Maze: ")
     m.print()
-    m.greedy()
+    m.astar()
     print()
     m.print()
 
-run()
+main()
