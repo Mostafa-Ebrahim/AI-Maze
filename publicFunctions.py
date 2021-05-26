@@ -14,5 +14,12 @@ def getcost(self):
     else:
         OverAllCost += 2
 
+def getMinH(fringe):
+    Min = 0
+    for i in range(1, len(fringe)):
+        if fringe[i].heuristic < fringe[Min].heuristic:
+            Min = i
+    return Min
+
 def FinalCost():
     return(OverAllCost//2 + 2)

@@ -28,6 +28,7 @@ def greedy(self):
                 cells.reverse()
                 self.solution = (actions, cells)
                 print ("The Final Cost: ", FinalCost())
+                print("Actions: "+', '.join(actions))
                 return
 
         self.visitedNodes.add(currentNode.state)
@@ -48,9 +49,3 @@ def greedy(self):
         # print('after for', availableNodes)
 """
 
-def getMinH(fringe):
-    Min = 0
-    for i in range(1, len(fringe)):
-        if fringe[i].heuristic < fringe[Min].heuristic:
-            Min = i
-    return Min
