@@ -1,23 +1,34 @@
 from data_structure import *
+from publicFunctions import *
 
 def bfs(self):
-startNode = Node(
-    state=self.start, parent=None, action=None, cost=0, heuristic=0
-)
-availableNodes = []
-visitedNodes = []
-availableNodes.append(startNode)
-while len(availableNodes) > 0:
-    currentNode = availableNodes.pop(0)
-        if currentNode.state in visitedNodes:
-        continue
-    visitedNodes.append(currentNode.state)
+    startNode = Node(state=self.start, parent=None, action=None)
+    availableNodes = []
+    self.visitedNodes = set()
+    availableNodes.append(startNode)
+    while True:
+        if len(availableNodes) == 0:
+            print("No solution")
+            break
+        currentNode = availableNodes.pop(0)
+        # reached the goal ?
         if currentNode.state == self.goal:
-            return currentNode.path[], len(visitedNodes)
-    possibleActions = availableActions(self, startNode.state)
-        for action in possibleActions:
-            nextState = avaiableState(self, startNode.state, startNode.action)
-            nextNode = node(state=nextState, path=[startNode.path,action] )
-            action.append(nextNode)
-            availableNodes.append(nextNode.path)
-return 'not found'  
+                actions = []
+                cells = []
+                while currentNode.parent is not None:
+                    actions.append(currentNode.action)
+                    cells.append(currentNode.state)
+                    currentNode = currentNode.parent
+                actions.reverse()
+                cells.reverse()
+                self.solution = (actions, cells)
+                print("Actions: "+', '.join(actions))
+                return
+
+        self.visitedNodes.add(currentNode.state)
+
+        # Add available nodes
+        for action, state in self.availableActions(currentNode.state):
+                if state not in self.visitedNodes:
+                    child = Node(state=state, parent=currentNode, action=action)
+                    availableNodes.append(child)
