@@ -7,8 +7,6 @@ class Node():
         self.heuristic = heuristic
         self.cost = cost
 
-    def setDirection(self, action):
-        self.direction = action
 class Stack():
     def __init__(self):
         self.fringe = []
