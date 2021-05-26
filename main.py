@@ -20,6 +20,5 @@ def run():
     m.greedy()
     print()
     m.print()
-    print()
 
 run()
