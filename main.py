@@ -10,10 +10,8 @@ def main():
         sys.exit("Usage: python main.py maze1.txt greedy")
     input = sys.argv[2]
     m = Maze(sys.argv[1])
-
-    print("Maze: ")
-    m.print()
-
+    print()
+    
     if input == 'astar':
         m.astar()
     elif input == 'bfs':
