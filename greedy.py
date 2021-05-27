@@ -45,14 +45,3 @@ def greedy(self):
                 if state not in self.visitedNodes:
                     child = Node(state=state, parent=currentNode, action=action, heuristic=heu(self, currentNode.state), cost=0)
                     availableNodes.append(child)
-
-"""
-        possibleActions = availableActions(self, startNode.state)
-        # print(possibleActions)
-        for action in possibleActions:
-            nextNode = applyAction(self, currentNode, action)
-            availableNodes.append(nextNode)
-            # print('at end of for',availableNodes)
-        # print('after for', availableNodes)
-"""
-
