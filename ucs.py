@@ -43,5 +43,5 @@ def ucs(self):
         # Add available nodes
         for action, state in self.availableActions(currentNode.state):
                 if state not in self.visitedNodes:
-                    child = Node(state=state, parent=currentNode, action=action, heuristic=0, cost=cost(self, currentNode.state))
+                    child = Node(state=state, parent=currentNode, action=action, heuristic=None, cost=cost(self, currentNode.state))
                     availableNodes.append(child)
