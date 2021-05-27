@@ -51,9 +51,10 @@ class Maze():
                     print("G", end="")
                 elif solution is not None and (i, j) in solution:
                     print("•", end="")
+                elif solution is not None and (i, j) in self.visitedNodes:
+                    print("x", end="")
                 else:
                     print(" ", end="")
-                    # print(" □ ", end="")
             print()
         print()
 
