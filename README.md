@@ -12,7 +12,7 @@
 
 **Output Example**:
 
-![example](./Example.png)
+![example](./example.png)
 
 `•` refers to solution path
 
