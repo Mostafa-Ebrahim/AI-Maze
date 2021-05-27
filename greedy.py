@@ -2,6 +2,8 @@ from data_structure import *
 from publicFunctions import *
 
 def greedy(self):
+    self.num_visitedNodes = -2
+
     h=heu(self, self.start)
     startNode = Node(state=self.start, parent=None, action=None, heuristic=h, cost=0)
 
@@ -16,6 +18,8 @@ def greedy(self):
             break
 
         currentNode = availableNodes.pop(getMinH(availableNodes))
+        self.num_visitedNodes += 1
+
         # reached the goal ?
         if currentNode.state == self.goal:
                 actions = []
@@ -28,7 +32,10 @@ def greedy(self):
                 cells.reverse()
                 self.solution = (actions, cells)
                 print ("The Final Cost: ", FinalCost(actions))
+                print()
                 print("Actions: "+', '.join(actions))
+                print()
+                print("Number of visited nodes: ", self.num_visitedNodes)
                 return
 
         self.visitedNodes.add(currentNode.state)

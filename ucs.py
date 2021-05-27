@@ -2,6 +2,8 @@ from data_structure import *
 from publicFunctions import *
 
 def ucs(self):
+    self.num_visitedNodes = -2
+
     c=cost(self, self.start)
     startNode = Node(state=self.start, parent=None, action=None, heuristic=None, cost=c)
 
@@ -16,6 +18,8 @@ def ucs(self):
             break
 
         currentNode = availableNodes.pop(getMinC(availableNodes))
+        self.num_visitedNodes += 1
+
         # reached the goal ?
         if currentNode.state == self.goal:
                 actions = []
@@ -28,7 +32,10 @@ def ucs(self):
                 cells.reverse()
                 self.solution = (actions, cells)
                 print ("The Final Cost: ", FinalCost(actions))
+                print()
                 print("Actions: "+', '.join(actions))
+                print()
+                print("Number of visited nodes: ", self.num_visitedNodes)
                 return
 
         self.visitedNodes.add(currentNode.state)
