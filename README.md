@@ -1,5 +1,5 @@
 # AI-Maze
-#### CLI application to solve maze problem using AI search Algorithms including:
+#### Maze solver using AI search Algorithms including:
 
 - Breadth-First Search
 - Depth-First Search
