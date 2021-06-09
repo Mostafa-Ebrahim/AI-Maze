@@ -8,7 +8,9 @@
 - A* Search
 
 **Usage:**
-`python main.py maze1.txt greedy`
+```
+python main.py maze1.txt greedy
+```
 
 **Output Example**:
 
